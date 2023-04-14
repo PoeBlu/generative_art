@@ -17,7 +17,7 @@ from mpl_toolkits.mplot3d.axes3d import get_test_data
 
 def check_dir(directory):
     if not os.path.isdir(directory):
-        print('Creating ' + directory)
+        print(f'Creating {directory}')
         os.mkdir(directory)
         
 output_dir = 'output'
@@ -56,7 +56,7 @@ ax.plot_wireframe(X, Y, Z,
 
 for angle in np.arange(0, 360+1, 5):
     print(angle)
-    
+
     fig = plt.figure(figsize=(4,4), 
                      dpi=100, 
                      facecolor=None, 
@@ -66,16 +66,16 @@ for angle in np.arange(0, 360+1, 5):
                      subplotpars=None, 
                      tight_layout=None, 
                      constrained_layout=None)
-    
+
     ax = fig.add_subplot(111,
                          projection='3d', 
                          polar=False)
-    
+
     ax.axis('off')
     #ax.axim = None
     #ax.elev = None
     ax.set_facecolor('#F1A9A0')
-    
+
     size = (100, 100)
     X, Y, Z = get_test_data(0.01)
     ax.plot_wireframe(X, Y, Z, 
@@ -84,14 +84,14 @@ for angle in np.arange(0, 360+1, 5):
                       alpha=0.5,
                       color='#E26A6A')
     ax.view_init(90, angle)
-    chart_filename = os.path.join(output_dir, chart_dir, 'azim_' + str(angle) + '.png')
+    chart_filename = os.path.join(output_dir, chart_dir, f'azim_{str(angle)}.png')
     plt.savefig(chart_filename, dpi=fig.dpi)
     plt.close(fig)
-    
-    
+
+
 for angle in np.arange(0, 360+1, 5):
     print(angle)
-    
+
     fig = plt.figure(figsize=(4,4), 
                      dpi=100, 
                      facecolor=None, 
@@ -101,16 +101,16 @@ for angle in np.arange(0, 360+1, 5):
                      subplotpars=None, 
                      tight_layout=None, 
                      constrained_layout=None)
-    
+
     ax = fig.add_subplot(111,
                          projection='3d', 
                          polar=False)
-    
+
     ax.axis('off')
     #ax.axim = None
     #ax.elev = None
     ax.set_facecolor('#F1A9A0')
-    
+
     size = (100, 100)
     X, Y, Z = get_test_data(0.01)
     ax.plot_wireframe(X, Y, Z, 
@@ -119,7 +119,7 @@ for angle in np.arange(0, 360+1, 5):
                       alpha=0.5,
                       color='#E26A6A')
     ax.view_init(angle, 90)
-    chart_filename = os.path.join(output_dir, chart_dir, 'elev_' + str(angle) + '.png')
+    chart_filename = os.path.join(output_dir, chart_dir, f'elev_{str(angle)}.png')
     plt.savefig(chart_filename, dpi=fig.dpi)
     plt.close(fig)
     

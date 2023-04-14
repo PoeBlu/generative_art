@@ -34,7 +34,7 @@ for filename in image_files:
     image = imageio.imread(os.path.join(args.dir, filename))
     images.append(image)
     print(filename, image.shape)
-    if (image_shape != image.shape) and (image_shape != 0):
+    if image_shape not in [image.shape, 0]:
         print('ERROR: image shapes are not consistent')
         sys.exit(0)
     image_shape = image.shape
